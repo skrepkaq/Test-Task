@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Добавить новое устройство
+{% endblock %}
+{% block head %}
+<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% endblock %}
+
+{% block body %}
+<div class="add-devices-container">
+    <a>Добавить оборудование</a>
+    <form method="POST" action="" id="add-devices">
+        {% csrf_token %}
+        <textarea name="devices" rows="7" cols="40" spellcheck="false" autofocus></textarea>
+        <br>
+        <select name="devices_type" form="add-devices" required>
+            <option value="">--Выберите тип оборудования--</option>
+            {% for type in devices_types %}
+            <option value="{{type.id}}">{{type.name}}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" class="button" value="Добавить">
+    </form>
+    {% if messages %}
+    <div class="error">
+        {% for msg in messages %}
+        <a>{{msg}}</a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+{% endblock %}

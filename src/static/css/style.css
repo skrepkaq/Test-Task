@@ -1,0 +1,20 @@
+* {
+    font-family: 'Roboto', sans-serif;
+    padding: 5px
+}
+
+#add-devices textarea {
+    font-size: large;
+    border-radius: 6px;
+}
+
+.button {
+    cursor: pointer;
+}
+
+.error {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    color: #f00;
+}
